@@ -1,11 +1,16 @@
 name: Build Docker Image & Push to Hub
-run-name: "test run name"
 
 on:
   push:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+  workflow_dispatch:
+    inputs:
+      print_tags:
+        description: 'True to print to STDOUT'
+        required: true
+        type: boolean
 
 defaults:
   run:
@@ -20,8 +25,9 @@ jobs:
     - name: checkout git repository
       uses: actions/checkout@v4
 
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: build the Docker image
+    #  run: docker build . --file Dockerfile --tag allinone-tom.online/fangxiaoyuan/robot-for-fxy:$(date +%s)
+      run: docker build . --file Dockerfile --tag allinone-tom.online/fangxiaoyuan/robot-for-fxy:v1.0.0
 
-    - name:  show docker images
-      run: docker image ls -a
+    - name: push docker images
+      run: docker push allinone-tom.online/fangxiaoyuan/robot-for-fxy:v1.0.0
