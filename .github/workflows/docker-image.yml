@@ -1,4 +1,5 @@
-name: Docker Image CI
+name: Build Docker Image & Push to Hub
+run-name: "test run name"
 
 on:
   push:
@@ -6,14 +7,21 @@ on:
   pull_request:
     branches: [ "master" ]
 
+defaults:
+  run:
+    shell: bash
+
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: checkout git repository
+      uses: actions/checkout@v4
+
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-    - run: docker image ls -a
+
+    - name:  show docker images
+      run: docker image ls -a
