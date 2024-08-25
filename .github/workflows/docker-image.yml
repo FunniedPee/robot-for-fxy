@@ -30,4 +30,6 @@ jobs:
       run: docker build . --file Dockerfile --tag allinone-tom.online/fangxiaoyuan/robot-for-fxy:v1.0.0
 
     - name: push docker images
-      run: docker push allinone-tom.online/fangxiaoyuan/robot-for-fxy:v1.0.0
+      run: |
+        docker login -u=fangxiaoyuan -p=test@123 allinone-tom.online
+        docker push allinone-tom.online/fangxiaoyuan/robot-for-fxy:v1.0.0
