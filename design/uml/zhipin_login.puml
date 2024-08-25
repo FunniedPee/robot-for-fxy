@@ -1,0 +1,23 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+
+participant 浏览器 as browser
+participant 手机客户端 as phone
+participant BOSS直聘服务器 as server
+
+browser -> server: randkey 生成一个qrId
+server --> browser: 返回qrId
+browser -> server: getqrcode 获取二维码jpeg
+server --> browser: 返回二维码
+loop
+    browser -> server: scan 轮询二维码是否被扫
+end
+phone -> phone: 及时扫描二维码
+server --> browser: 返回已经扫码
+browser -> browser: 请求头像，更新页面
+loop
+    browser -> server: scanLogin 轮询是否手机点击确定
+end
+@enduml
