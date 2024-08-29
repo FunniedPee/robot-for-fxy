@@ -8,14 +8,8 @@ on:
   workflow_call:
     secrets:
       access_token:
-        description: 'A token passed from the caller workflow'
+        description: 'A token used for docker login'
         required: true
-  workflow_dispatch:
-    inputs:
-      print_tags:
-        description: 'True to print to STDOUT'
-        required: true
-        type: boolean
 
 defaults:
   run:
@@ -24,20 +18,13 @@ defaults:
 jobs:
 
   build:
-  #  runs-on: [self-hosted, linux, x64]
     runs-on: ubuntu-latest
-
     steps:
-    - name: check runs-on machine
-      run: |
-        pwd
-        docker version
 
     - name: checkout git repository
       uses: actions/checkout@v4
 
     - name: build the Docker image
-    #  run: docker build . --file Dockerfile --tag allinone-tom.online/fangxiaoyuan/robot-for-fxy:$(date +%s)
       run: docker build . --file Dockerfile --tag funniedpee/robot-for-fxy:v1.0.0
 
     - name: push docker images
