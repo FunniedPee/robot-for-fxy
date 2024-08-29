@@ -19,7 +19,8 @@ defaults:
 jobs:
 
   build:
-    runs-on: [self-hosted, linux, x64]
+  #  runs-on: [self-hosted, linux, x64]
+    runs-on: ubuntu-latest
 
     steps:
     - name: check runs-on machine
