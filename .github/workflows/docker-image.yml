@@ -19,9 +19,14 @@ defaults:
 jobs:
 
   build:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux, x64]
 
     steps:
+    - name: check runs-on machine
+      run: |
+        pwd
+        docker version
+
     - name: checkout git repository
       uses: actions/checkout@v4
 
