@@ -7,7 +7,7 @@ on:
     branches: [ "master" ]
   workflow_call:
     secrets:
-      access-token:
+      access_token:
         description: 'A token passed from the caller workflow'
         required: true
   workflow_dispatch:
@@ -42,5 +42,5 @@ jobs:
 
     - name: push docker images
       run: |
-        docker login -u=funniedpee -p=${{ secrets.access-token }}
+        docker login -u=funniedpee -p=${{ secrets.access_token }}
         docker push funniedpee/robot-for-fxy:v1.0.0
