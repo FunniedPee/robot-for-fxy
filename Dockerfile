@@ -17,5 +17,4 @@ COPY --from=Builder /build/robot-for-fxy /robot-for-fxy
 
 CMD ["/robot-for-fxy"]
 
-
 EXPOSE 8080
