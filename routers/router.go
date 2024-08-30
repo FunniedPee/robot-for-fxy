@@ -8,7 +8,7 @@
 package routers
 
 import (
-	"RobotForFXY/controllers"
+	"robot-for-fxy/controllers"
 
 	"github.com/astaxie/beego"
 )
@@ -32,6 +32,8 @@ func init() {
 }
 
 func addCustomRouters() {
+
+	beego.Router("/ping", &controllers.PingController{})
 
 	beego.Router("/wx", &controllers.WXController{})
 
