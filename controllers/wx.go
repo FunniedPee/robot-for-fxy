@@ -1,11 +1,11 @@
 package controllers
 
 import (
-	"RobotForFXY/logic/msg"
 	"crypto/sha1"
 	"fmt"
 	"github.com/astaxie/beego"
 	"io"
+	"robot-for-fxy/logic/msg"
 	"sort"
 	"strings"
 )

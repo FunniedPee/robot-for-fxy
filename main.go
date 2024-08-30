@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "RobotForFXY/routers"
+	_ "robot-for-fxy/routers"
 
 	"github.com/astaxie/beego"
 )

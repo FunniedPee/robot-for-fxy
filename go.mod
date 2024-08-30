@@ -1,4 +1,4 @@
-module RobotForFXY
+module robot-for-fxy
 
 go 1.22
 
