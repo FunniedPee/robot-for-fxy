@@ -20,18 +20,18 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      image_name: funniedpee/robot-for-fxy
-      image_tag: v1.0.0
-      image: ${{ env.image_name }}:${{ env.image_tag }}
+      IMAGE_NAME: funniedpee/robot-for-fxy
+      IMAGE_TAG: v1.0.0
+      IMAGE: $IMAGE_NAME:$IMAGE_TAG
     steps:
 
     - name: checkout git repository
       uses: actions/checkout@v4
 
     - name: build the Docker image
-      run: docker build . --file Dockerfile --tag ${{ env.image }}
+      run: docker build . --file Dockerfile --tag $IMAGE
 
     - name: push docker images
       run: |
         docker login -u=funniedpee -p=${{ secrets.access_token }}
-        docker push ${{ env.image }}
+        docker push $IMAGEE
