@@ -29,9 +29,9 @@ jobs:
       uses: actions/checkout@v4
 
     - name: build the Docker image
-      run: docker build . --file Dockerfile --tag ${image}
+      run: docker build . --file Dockerfile --tag ${{ env.image }}
 
     - name: push docker images
       run: |
         docker login -u=funniedpee -p=${{ secrets.access_token }}
-        docker push ${image}
+        docker push ${{ env.image }}
