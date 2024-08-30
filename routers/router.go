@@ -14,30 +14,8 @@ import (
 )
 
 func init() {
-	ns := beego.NewNamespace("/v1",
-		beego.NSNamespace("/object",
-			beego.NSInclude(
-				&controllers.ObjectController{},
-			),
-		),
-		beego.NSNamespace("/user",
-			beego.NSInclude(
-				&controllers.UserController{},
-			),
-		),
-	)
-	beego.AddNamespace(ns)
-
-	addCustomRouters()
-}
-
-func addCustomRouters() {
 
 	beego.Router("/ping", &controllers.PingController{})
 
 	beego.Router("/wx", &controllers.WXController{})
-
-	//	nsV1 := beego.NewNamespace("/v1")
-
-	//	beego.AddNamespace(nsV1)
 }
