@@ -22,7 +22,7 @@ jobs:
     env:
       image_name: funniedpee/robot-for-fxy
       image_tag: v1.0.0
-      image: ${image_name}:${image_tag}
+      image: ${{ env.image_name }}:${{ env.image_tag }}
     steps:
 
     - name: checkout git repository
