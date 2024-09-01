@@ -10,7 +10,7 @@ WORKDIR /build
 COPY . .
 RUN go mod tidy && go build -o robot-for-fxy main.go
 
-FROM ubuntu:22.04
+FROM ubuntu:latest
 LABEL authors="funniedpee"
 
 COPY --from=Builder /build/conf /conf
