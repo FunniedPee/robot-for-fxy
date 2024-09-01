@@ -10,10 +10,9 @@ WORKDIR /build
 COPY . .
 RUN go mod tidy && go build -o robot-for-fxy main.go
 
-FROM ubuntu:latest
+FROM scratch
 LABEL authors="funniedpee"
 
-COPY --from=Builder /build/conf /conf
 COPY --from=Builder /build/robot-for-fxy /robot-for-fxy
 
 CMD ["/robot-for-fxy"]
