@@ -1,6 +1,7 @@
 services:
   robot-for-fxy:
     image: "funniedpee/robot-for-fxy:v1.0.0"
+    container_name: 'robot-for-fxy'
     ports:
       - "58080:8080"
     restart: "unless-stopped"
